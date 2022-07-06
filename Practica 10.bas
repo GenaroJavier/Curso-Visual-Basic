@@ -28,13 +28,12 @@ End Sub
 Sub obtenerPorcentaje()
 Dim valor As Integer
 Dim porcentaje As Integer
-
-valor = Range("G5").Value
-porcentaje = Range("G6").Value
-
-If IsNumeric(valor) = False Or IsNumeric(porcentaje) = False Then
-    MsgBox "Por favor introduce el valor o porcentaje, en la celda correspondiente"
+If IsNumeric(Range("G5").Value) = False Or IsNumeric(Range("G6").Value) = False Or Range("G5").Value = "" Or Range("G6").Value = "" Then
+    MsgBox "Por favor introduce el valor o porcentaje correcto, en la celda correspondiente"
+    Range("G7").Value = "0"
     Else
+    valor = Range("G5").Value
+    porcentaje = Range("G6").Value
     Range("G7").Value = (valor * (porcentaje / 100))
 End If
 End Sub
